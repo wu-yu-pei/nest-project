@@ -1,0 +1,9 @@
+{
+  "dataBase": {
+    "host": "8.219.66.21",
+    "userName": "root",
+    "passWord": "19781209Wyp",
+    "port": "3306",
+    "database": "sql-test"
+  }
+}
