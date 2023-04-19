@@ -7,7 +7,13 @@ export class UserController {
 
   @Get()
   @HttpCode(200)
-  findUserLogsById(@Query() id: number) {
-    return this.userSercice.findUserLogsById(id);
+  async findUserById(@Query('id') id: number) {
+    console.log(id);
+
+    const res = await this.userSercice.findUserById(id);
+
+    return {
+      data: [res],
+    };
   }
 }

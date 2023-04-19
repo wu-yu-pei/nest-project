@@ -1,8 +1,17 @@
 import { Injectable } from '@nestjs/common';
+import { Repository } from 'typeorm';
+import { Log } from './log.entry';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
 export class LogService {
-  findLogsByUserId(id) {
-    return id;
+  constructor(@InjectRepository(Log) private logRep: Repository<Log>) {}
+  async findLogsByUserId(id) {
+    const res = await this.logRep.findOne({
+      where: {
+        id: id,
+      },
+    });
+    return res;
   }
 }
