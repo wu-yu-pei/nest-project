@@ -8,8 +8,6 @@ export class UserController {
   @Get()
   @HttpCode(200)
   async findUserById(@Query('id') id: number) {
-    console.log(id);
-
     const res = await this.userSercice.findUserById(id);
 
     return {

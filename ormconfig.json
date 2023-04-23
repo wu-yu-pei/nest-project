@@ -1,0 +1,15 @@
+{
+  "type": "mysql",
+  "host": "8.219.66.21",
+  "port": 3306,
+  "username": "root",
+  "password": "19781209Wyp",
+  "database": "nest",
+  "entities": [
+    "User",
+    "Log",
+    "Rule",
+    "Profile"
+  ],
+  "synchronize": true
+}
