@@ -11,7 +11,7 @@ export class LogService {
       where: {
         id: id,
       },
-      relations: [],
+      relations: ['user'],
     });
 
     // const res = this.logRep
