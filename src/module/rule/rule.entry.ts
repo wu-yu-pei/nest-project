@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryColumn } from 'typeorm';
+import { Entity, Column, PrimaryColumn, ManyToMany } from 'typeorm';
+import { User } from '../user/user.entry';
 
 @Entity()
 export class Rule {
@@ -6,11 +7,8 @@ export class Rule {
   id: number;
 
   @Column()
-  firstName: string;
+  name: string;
 
-  @Column()
-  lastName: string;
-
-  @Column()
-  isActive: boolean;
+  @ManyToMany(() => User, (user) => user.rules)
+  users: User[];
 }

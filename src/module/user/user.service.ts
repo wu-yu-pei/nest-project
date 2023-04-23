@@ -11,7 +11,7 @@ export class UserService {
       where: {
         id,
       },
-      relations: ['log'],
+      relations: ['logs', 'rules', 'profile'],
     });
 
     // const user = this.userRep
