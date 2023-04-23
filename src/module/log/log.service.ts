@@ -11,7 +11,13 @@ export class LogService {
       where: {
         id: id,
       },
+      relations: [],
     });
+
+    // const res = this.logRep
+    //   .createQueryBuilder('log')
+    //   .where('id=:id', { id })
+    //   .getMany();
     return res;
   }
 }

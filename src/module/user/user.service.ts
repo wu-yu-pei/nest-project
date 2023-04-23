@@ -7,20 +7,19 @@ import { InjectRepository } from '@nestjs/typeorm';
 export class UserService {
   constructor(@InjectRepository(User) private userRep: Repository<User>) {}
   async findUserById(id: number) {
-    // const user = await this.userRep.findOne({
-    //   where: {
-    //     id,
-    //   },
-    //   relations: {
-    //     log: true,
-    //   },
-    // });
-    const user = this.userRep
-      .createQueryBuilder('user')
-      .leftJoin('user.log', 'log')
-      .addSelect('log')
-      .where('user.id=:id', { id })
-      .getMany();
+    const user = await this.userRep.findOne({
+      where: {
+        id,
+      },
+      relations: ['log'],
+    });
+
+    // const user = this.userRep
+    //   .createQueryBuilder('user')
+    //   .leftJoin('user.log', 'log')
+    //   .addSelect('log')
+    //   .where('user.id=:id', { id })
+    //   .getMany();
 
     return user;
   }

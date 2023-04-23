@@ -12,10 +12,10 @@ export class Log {
   @Column()
   url: string;
 
-  @Column()
+  @Column({ select: true })
   code: number;
 
-  @ManyToOne(() => User, (user) => user.log)
+  @ManyToOne(() => User)
   @JoinColumn({ name: 'userid' })
   user: User;
 }
